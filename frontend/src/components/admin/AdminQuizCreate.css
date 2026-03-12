@@ -1,0 +1,328 @@
+/* ================================================================
+   Admin — Quiz Create Page
+   ================================================================ */
+
+.admin-create {
+  padding: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  margin-bottom: 28px;
+}
+
+.admin-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-title-icon {
+  font-size: 1.6rem;
+}
+
+.admin-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Messages                                                           */
+/* ------------------------------------------------------------------ */
+.admin-msg {
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+.admin-msg--error {
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: var(--accent-rose);
+}
+
+.admin-msg--success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+/* ------------------------------------------------------------------ */
+/* Form Layout                                                        */
+/* ------------------------------------------------------------------ */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.admin-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-section.card-glass {
+  padding: 24px;
+}
+
+.admin-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-field--full {
+  grid-column: 1 / -1;
+}
+
+.admin-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-textarea {
+  resize: vertical;
+  min-height: 60px;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------------ */
+/* Toggle Switch                                                      */
+/* ------------------------------------------------------------------ */
+.admin-field--toggle {
+  display: flex;
+  align-items: flex-end;
+}
+
+.admin-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.admin-toggle-label input[type="checkbox"] {
+  display: none;
+}
+
+.admin-toggle-switch {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.admin-toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.admin-toggle-label input:checked + .admin-toggle-switch {
+  background: var(--accent-emerald);
+  border-color: var(--accent-emerald);
+}
+
+.admin-toggle-label input:checked + .admin-toggle-switch::after {
+  transform: translateX(20px);
+  background: #fff;
+}
+
+/* ------------------------------------------------------------------ */
+/* Question Cards                                                     */
+/* ------------------------------------------------------------------ */
+.admin-question {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-question-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-question-badge {
+  background: var(--gradient-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.admin-remove-btn {
+  color: var(--accent-rose) !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* Choices                                                            */
+/* ------------------------------------------------------------------ */
+.admin-choices-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.admin-choice--correct {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.06);
+}
+
+.admin-choice-radio {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: transparent;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.admin-choice-radio:hover {
+  border-color: var(--accent-emerald);
+}
+
+.admin-choice-radio--active {
+  background: var(--accent-emerald);
+  border-color: var(--accent-emerald);
+  color: #fff;
+}
+
+.admin-choice-input {
+  flex: 1;
+}
+
+.admin-choice-remove {
+  color: var(--text-muted) !important;
+  opacity: 0.6;
+}
+
+.admin-choice-remove:hover {
+  color: var(--accent-rose) !important;
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------------ */
+/* Actions                                                            */
+/* ------------------------------------------------------------------ */
+.admin-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: admin-spin 0.6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes admin-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ------------------------------------------------------------------ */
+/* Access Denied                                                      */
+/* ------------------------------------------------------------------ */
+.admin-access-denied {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 32px;
+}
+
+.admin-access-denied h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                         */
+/* ------------------------------------------------------------------ */
+@media (max-width: 640px) {
+  .admin-create {
+    padding: 16px;
+  }
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-title {
+    font-size: 1.4rem;
+  }
+}
